@@ -110,7 +110,7 @@ describe('AppImage bez bramki licencyjnej', bezYamla, () => {
   });
 });
 
-describe('konfiguracja paczek dla macOS', () => {
+describe('konfiguracja paczek dla macOS', bezYamla, () => {
   test('cele obejmują dmg i zip dla arm64 i x64', () => {
     assert.ok(cfg.mac, 'brak sekcji mac w electron-builder.yml');
     const targets = cfg.mac.target || [];
@@ -127,7 +127,9 @@ describe('konfiguracja paczek dla macOS', () => {
   test('kategoria aplikacji jest ustawiona', () => {
     assert.equal(cfg.mac.category, 'public.app-category.utilities');
   });
+});
 
+describe('macOS: okno i współtwórcy', () => {
   test('kliknięcie w Dock (zdarzenie activate) przywraca okno', () => {
     const mainJs = readFileSync(join(ROOT, 'ui', 'main.js'), 'utf8');
     assert.match(mainJs, /app\.on\(['"]activate['"],/);
@@ -140,6 +142,3 @@ describe('konfiguracja paczek dla macOS', () => {
     assert.equal(macPort.role, 'port macOS');
   });
 });
-
-
-

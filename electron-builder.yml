@@ -2,12 +2,6 @@ appId: pl.radiodyplom.bridge
 productName: RadioDyplom Bridge
 copyright: © 2026 SQ8BWM. Licencja GPL-3.0-or-later.
 
-extraMetadata:
-  contributors:
-    - name: Kamil Pawlak (SO8KP)
-      role: port macOS
-      url: https://github.com/rico-et22
-
 directories:
   buildResources: build
   output: release
@@ -111,7 +105,6 @@ mac:
   # Uruchomienie: Ustawienia systemowe → Prywatność i ochrona → Otwórz mimo to.
   hardenedRuntime: false
   gatekeeperAssess: false
-
 
 # ŚWIADOMIE BEZ `appImage: license:`. Ta opcja nie „dokłada tekstu licencji",
 # tylko robi z niej BRAMKĘ: `AppRun` pokazuje przez zenity tekst GPL

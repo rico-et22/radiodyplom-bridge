@@ -80,6 +80,12 @@ Pobierz z **[wydań](https://github.com/sq8bwm/radiodyplom-bridge/releases)**:
 | `radiodyplom-bridge-*-x64.dmg` | macOS — procesory Intel |
 | `radiodyplom-bridge-headless-*-all.deb` | **bez interfejsu** — Raspberry Pi, serwer ([opis](docs/malinka.md)) |
 
+Wersje z interfejsem są **64-bitowe**: dla Windows i Linuksa na procesory
+Intel/AMD (stąd `x64`, `amd64` i `x86_64` w nazwach — to samo, trzy konwencje),
+dla macOS osobno na Apple Silicon (`arm64`) i Intela (`x64`). Paczka `headless`
+ma `all`, bo to czysty JavaScript: działa też na **arm64 i armhf**, czyli na
+malince.
+
 Na Linuksie `.deb` dodaje pozycję do menu (**Internet / Sieć**). AppImage niczego
 nie instaluje — uruchamiasz plik i tyle, więc w menu się nie pojawi.
 

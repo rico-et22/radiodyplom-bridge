@@ -135,8 +135,9 @@ describe('trzecia opinia: openssl', () => {
       assert.match(opis, /CA:FALSE/);
       assert.match(opis, /TLS Web Server Authentication/);
       assert.match(opis, /DNS:localhost/);
-      // LibreSSL (domyślny openssl na macOS) wymaga CA:TRUE dla certyfikatów
-      // w -CAfile, więc dla certyfikatu końcowego (CA:FALSE) rzuca błąd weryfikacji.
+      assert.match(opis, new RegExp(`IP Address:${DANE.adresy[1].replace(/\./g, '\\.')}`));
+      // LibreSSL (domyślny openssl na macOS) rzuca error 20 (unable to get local issuer certificate)
+      // przy weryfikacji certyfikatu końcowego przez -CAfile.
       const isLibreSSL = /LibreSSL/i.test(execFileSync('openssl', ['version'], { encoding: 'utf8' }));
       if (!isLibreSSL) {
         const w = execFileSync('openssl', ['verify', '-CAfile', plik, plik], { encoding: 'utf8' });
